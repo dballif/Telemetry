@@ -307,11 +307,11 @@ int main(int argc, char *argv[]) {
         }
         else if(ret == 0) {
             for(i=0; i<sensors.size(); ++i) {
-                mainlog->trace("Timed Out!");
+                mainlog->warn("Timed Out!");
                 fds[i].events = POLLIN;
                 fds[i].revents = 0;
                 read(fds[i].fd,buf,7);
-                mainlog->trace("Timeout  read value:" + to_string(atoi(buf)));
+                mainlog->warn("Timeout  read value:" + to_string(atoi(buf)));
 		//testNum++;
             }
         }
