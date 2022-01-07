@@ -27,14 +27,17 @@ The compiled file is named telemetry.out and can be run without any arguments. H
 -h: Displays the help menu  
 -v: Displays the version  
 -f <file>: Specifies the configuration file to use  
--d <trace,debug,error,warn,info>: Specify the log level (Info is set by default)
+-d <trace,debug,info,warn,error,critical>: Specify the log level (Info is set by default)
 
 ## Expected Behavior
 When the program is running correctly, it should continually output the payload that would be sent to the database in the info log (this is the default). An example of this output is:
  
 "[2022-01-06 19:56:06.849] [main] [info] Next Payload: Thu Jan  6 19:56:06 2022,beehive,Nursery,18.312000"
  
- Obviously if deeper logs are turned on you will see a lot more output.
+Obviously if deeper logs are turned on you will see a lot more output.
+
+**IMPORTANT NOTE!!! If you don't have any sensors hooked up, only a few warnings will be shown. I recommend turning on trace level logs to see more.**
+
 
 ## Doxygen Documentation
 Throughout most of the project Doxygen comment notation has been used. Further documentation in this format will be added at a later time.
