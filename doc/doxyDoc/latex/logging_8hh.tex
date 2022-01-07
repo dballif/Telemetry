@@ -1,0 +1,82 @@
+\hypertarget{logging_8hh}{}\section{/home/pi/telemetry/logging.hh File Reference}
+\label{logging_8hh}\index{/home/pi/telemetry/logging.\+hh@{/home/pi/telemetry/logging.\+hh}}
+
+
+Logging for \hyperlink{telemetry_8cc}{telemetry.\+cc}.  
+
+
+{\ttfamily \#include $<$spdlog/sinks/stdout\+\_\+sinks.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
+Include dependency graph for logging.\+hh\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{logging_8hh__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{logging_8hh__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{logging_8hh_a3f987878202e572888e51b0010fe1dce}\label{logging_8hh_a3f987878202e572888e51b0010fe1dce}} 
+\#define {\bfseries D\+E\+C\+L\+\_\+\+L\+O\+G\+G\+ER}(X)~extern decltype(spdlog\+::get(\char`\"{}\char`\"{})) X;
+\item 
+\mbox{\Hypertarget{logging_8hh_afe5ff6938e374f8ade78ba781a4a742e}\label{logging_8hh_afe5ff6938e374f8ade78ba781a4a742e}} 
+\#define {\bfseries I\+N\+S\+T\+\_\+\+L\+O\+G\+G\+ER}(L\+O\+G\+G\+ER,  L\+O\+G\+G\+E\+R\+\_\+\+N\+A\+ME)~L\+O\+G\+G\+ER = std\+::make\+\_\+shared$<$spdlog\+::logger$>$(L\+O\+G\+G\+E\+R\+\_\+\+N\+A\+ME, console\+Sink);
+\item 
+\mbox{\Hypertarget{logging_8hh_a3e90f63040e6f216866895eec76c9792}\label{logging_8hh_a3e90f63040e6f216866895eec76c9792}} 
+\#define {\bfseries D\+E\+F\+\_\+\+L\+O\+G\+G\+ER}(X)~decltype(spdlog\+::get(\char`\"{}\char`\"{})) X;
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{logging_8hh_a25d3e12aaecd618c1176145894d5fb5a}{D\+E\+F\+\_\+\+L\+O\+G\+G\+ER} (mainlog)
+\begin{DoxyCompactList}\small\item\em This is the defining of the various logs used within the program. If any more are to be added They need to be added here, in \hyperlink{logging_8hh}{logging.\+hh} and a little lower with the I\+N\+S\+T\+\_\+\+L\+O\+G\+G\+ER things later. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{logging_8hh_a3458c74e904c52b76d3e427b4c195c50}\label{logging_8hh_a3458c74e904c52b76d3e427b4c195c50}} 
+{\bfseries D\+E\+F\+\_\+\+L\+O\+G\+G\+ER} (networklog)
+\item 
+\mbox{\Hypertarget{logging_8hh_ab5cf5f3cabc1d43cc9485bc1906130a5}\label{logging_8hh_ab5cf5f3cabc1d43cc9485bc1906130a5}} 
+{\bfseries D\+E\+F\+\_\+\+L\+O\+G\+G\+ER} (sensorslog)
+\item 
+\mbox{\Hypertarget{logging_8hh_a6cd81cbf58fc52813054048504855105}\label{logging_8hh_a6cd81cbf58fc52813054048504855105}} 
+{\bfseries D\+E\+C\+L\+\_\+\+L\+O\+G\+G\+ER} (mainlog)
+\item 
+\mbox{\Hypertarget{logging_8hh_a954cb5a32e8c75d84ddb56b69dc4216f}\label{logging_8hh_a954cb5a32e8c75d84ddb56b69dc4216f}} 
+{\bfseries D\+E\+C\+L\+\_\+\+L\+O\+G\+G\+ER} (networklog)
+\item 
+\mbox{\Hypertarget{logging_8hh_ad0daa0546f229bbbcde099a0a8630531}\label{logging_8hh_ad0daa0546f229bbbcde099a0a8630531}} 
+{\bfseries D\+E\+C\+L\+\_\+\+L\+O\+G\+G\+ER} (sensorslog)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Logging for \hyperlink{telemetry_8cc}{telemetry.\+cc}. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Ballif (\href{mailto:ballifdaniel@gmail.com}{\tt ballifdaniel@gmail.\+com}) 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{logging_8hh_a25d3e12aaecd618c1176145894d5fb5a}\label{logging_8hh_a25d3e12aaecd618c1176145894d5fb5a}} 
+\index{logging.\+hh@{logging.\+hh}!D\+E\+F\+\_\+\+L\+O\+G\+G\+ER@{D\+E\+F\+\_\+\+L\+O\+G\+G\+ER}}
+\index{D\+E\+F\+\_\+\+L\+O\+G\+G\+ER@{D\+E\+F\+\_\+\+L\+O\+G\+G\+ER}!logging.\+hh@{logging.\+hh}}
+\subsubsection{\texorpdfstring{D\+E\+F\+\_\+\+L\+O\+G\+G\+E\+R()}{DEF\_LOGGER()}}
+{\footnotesize\ttfamily D\+E\+F\+\_\+\+L\+O\+G\+G\+ER (\begin{DoxyParamCaption}\item[{mainlog}]{ }\end{DoxyParamCaption})}
+
+
+
+This is the defining of the various logs used within the program. If any more are to be added They need to be added here, in \hyperlink{logging_8hh}{logging.\+hh} and a little lower with the I\+N\+S\+T\+\_\+\+L\+O\+G\+G\+ER things later. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em main\+Log\+Level} & \\
+\hline
+\end{DoxyParams}

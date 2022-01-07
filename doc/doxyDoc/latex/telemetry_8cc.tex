@@ -1,0 +1,80 @@
+\hypertarget{telemetry_8cc}{}\section{/home/pi/telemetry/telemetry.cc File Reference}
+\label{telemetry_8cc}\index{/home/pi/telemetry/telemetry.\+cc@{/home/pi/telemetry/telemetry.\+cc}}
+
+
+The main file for running the telemetry system between the beehive, digesotr, weather station, and the M\+Q\+TT Broker.  
+
+
+{\ttfamily \#include \char`\"{}telemetry.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logging.\+hh\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$confuse.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for telemetry.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{telemetry_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{telemetry_8cc_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{telemetry_8cc_aab71f8b94719ede4dc9d04efb0ee8b19}\label{telemetry_8cc_aab71f8b94719ede4dc9d04efb0ee8b19}} 
+cfg\+\_\+t $\ast$ \hyperlink{telemetry_8cc_aab71f8b94719ede4dc9d04efb0ee8b19}{cfg}
+\begin{DoxyCompactList}\small\item\em declare the cfg variable to be used for configuration file. This is declared globably, so make sure not to declare it anywere else. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The main file for running the telemetry system between the beehive, digesotr, weather station, and the M\+Q\+TT Broker. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Ballif (\href{mailto:ballifdaniel@gmail.com}{\tt ballifdaniel@gmail.\+com}) 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{telemetry_8cc_a0ddf1224851353fc92bfbff6f499fa97}\label{telemetry_8cc_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{telemetry.\+cc@{telemetry.\+cc}!main@{main}}
+\index{main@{main}!telemetry.\+cc@{telemetry.\+cc}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+This loop runs through the arguments given at the command line. The options are h (help), d (log), v (version), f (cfg\+File)
+
+Setup a shared sink for all the different categories. Have to make that spdlog/sinks/stdout\+\_\+sinks.\+h. For setting up the logger see lines 305-\/308 of logging.\+cc in apsiproxy
+
+
+\begin{DoxyParams}{Parameters}
+{\em mainlog} & is instantiated. It will contain all of the logging for the main program. Most of the logging will occure here. \\
+\hline
+{\em sensorlog} & will contain all of the logging related to sensors, when they are registered, when they transfer data, etc. \\
+\hline
+{\em networklog} & will contain all of the network logging including M\+Q\+TT message logs.\\
+\hline
+\end{DoxyParams}
+This is the section for setting up configuration paramaters. The first entry is the looked for file entry, the second is the default paramater, and the third is
+
+Logging Setup in Cfg file. This allows for each of the following options. Default will be set to info.
+
+cfg\+\_\+init must be called to initialize the parsing of the cfg file. if an error occurs, the cfg\+\_\+parse will throw and error and kill the program.
+
+Libconfuse parsing. The first section will deal specifically with the logging options That have been setup in the configuration file. The second section will deal with the sensors section. For now, sensors will only be configurable in the file. However, logging needs to be configurable from the cmd line. cmd line will take precedence. If configured via cmd, 
+\begin{DoxyParams}{Parameters}
+{\em cmdlog} & will be set to 1. The sink will be console unless specified otherwise in cfg file.\\
+\hline
+\end{DoxyParams}
+The next section run through the various cfg sections as created in the options section above. They are each added to a list. The index of each list correspond to one sensor. 
+\begin{DoxyParams}{Parameters}
+{\em sensors} & is the vector containing the names of each sensor, \\
+\hline
+{\em types} & is the vector containing the type of sensors used (ie. i2c, one-\/wire, etc). If these are not the same size the program will be killed.\\
+\hline
+\end{DoxyParams}
