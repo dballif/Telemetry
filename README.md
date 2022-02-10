@@ -49,16 +49,3 @@ Throughout most of the project Doxygen comment notation has been used. Further d
 The next step is to finish adding the MQTT pieces to transmit all of this data to a SQLite database to be stored for further use.
 It would then be cool to write a webapp or mobile app to view the data and what not.
 More sensor types would also be good to have
-
-## Udacity Rubric Points
-Here are the rubric criteria that are addressed in this project:
-
-|                                         Criteria                                         |     File     |              Line             |
-|:----------------------------------------------------------------------------------------:|:------------:|:-----------------------------:|
-| The project demonstrates an understanding of C++ functions and control Structures        | telemetry.cc |       26,51,133,180,275       |
-| Project reads data from a file and process the data                                      | telemetry.cc |             97-123            |
-| The project accepts input from a user as part of the necessary operation of the program. | telemetry.cc |             52-73             |
-| The Project uses object oriented programming techniques.                                 |  sensors.hh  |               22              |
-| Classes use appropriate access specifiers for class members                              |  sensors.hh  |             23,31             |
-| Classes abstract implementation details from their interfaces.                           |  sensors.hh  | Comments throughout the class |
-| Classes encapsulate behavior.                                                            |  sensors.hh  |             34-46             |
